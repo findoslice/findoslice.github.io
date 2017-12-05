@@ -1,5 +1,5 @@
-html{
-    height:120%;
+body{
+    height:100%;
     background: rgb(50, 170, 170); /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(left top, rgb(50, 170, 170), rgb(245, 126, 126)); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(bottom right, rgb(50, 170, 170), rgb(245, 126, 126)); /* For Opera 11.1 to 12.0 */
@@ -17,13 +17,14 @@ html{
     margin-top:3%;
 }
 #profile{
-    border-radius:80%;
+    border-radius:200%;
     height:25%;
     width:25%;
     margin-left:37.5%;
-    margin-top:17.5%;
+    margin-top:15%;
 }
 #name{
     font-size: 38px;
     text-align: center;
+    padding-bottom:23.3%;
 }
