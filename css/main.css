@@ -2,10 +2,10 @@
     height:100%;
     width:100%;
     background: rgb(50, 170, 170); /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(left top, rgba(50, 170, 170, 0.7), rgb(30, 60, 60)); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(bottom right, rgba(50, 170, 170, 0.7), rgb(30, 60, 60)); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(bottom right, rgba(50, 170, 170, 0.7), rgb(30, 60, 60)); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to bottom right, rgba(80, 200, 200, 1), rgb(30, 60, 60)); /* Standard syntax */
+    background: -webkit-linear-gradient(left top, rgba(80, 200, 200, 0.7), rgb(30, 60, 60)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, rgba(80, 200, 200, 0.7), rgb(30, 60, 60)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, rgba(80, 200, 200, 0.7), rgb(30, 60, 60)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, rgba(80, 200, 200, 0.7), rgb(30, 60, 60)); /* Standard syntax */
     background-repeat:repeat,no-repeat;
   }
 
@@ -13,27 +13,17 @@
     height:100%;
     width:100%;
 }
-a:click{
-    transition-duration: 300 ms;
-}
 
-
-
-#header {
-    border-bottom: 2px solid #d2d2d2;
-    color:#a2a2a2;
-    text-align: center;
-    margin-top:3%;
-}
 #profile{
     border-radius:200%;
     height:25%;
     width:25%;
     margin-left:37.5%;
-    margin-top:4%;
+    margin-top:15%;
+    cursor: default;
 }
 #name{
-    font-size: 38px;
+    font-size: 3em;
     text-align: center;
     padding-bottom:23.3%;
 }
@@ -41,6 +31,16 @@ a:click{
     text-align:center;
     margin-top:-25%;
 }
+#links{
+    margin-top:-11%;
+    margin-bottom:19.4%;
+}
+
 .three.columns{
     text-align: center;
+}
+
+.titles{
+    cursor: pointer;
+    text-decoration: bold;
 }
