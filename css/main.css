@@ -1,3 +1,8 @@
+html{
+    width:100%;
+    scroll-behavior: smooth;
+}
+
 #topboi{
     height:100%;
     width:100%;
@@ -12,6 +17,7 @@
 #middleboi{
     height:100%;
     width:100%;
+    align-content: right;
 }
 
 #profile{
@@ -21,6 +27,7 @@
     margin-left:37.5%;
     margin-top:15%;
     cursor: default;
+    border-bottom: 0px;
 }
 #name{
     font-size: 3em;
@@ -35,11 +42,40 @@
     margin-top:-11%;
     margin-bottom:19.4%;
 }
+#oxford{
+    width:67%;
+    float:right;
+}
+#oxfordcontent{
+    text-align: center;
+    width:33%;
+    float:left;
+}
+#oxfordcontent h1{
+    font-weight: bold;
+    float: left;
+    margin-left: 2%;
+    font-size: 2.5em;
+}
+
+a{
+    text-decoration:none;
+    color: #222;
+    font-weight: bold;
+    border-bottom: 2px dashed #222;
+}
+a:hover{
+    color: #111;
+    font-weight: 1300;
+    font-size: 1.05em;
+    border-bottom: 3px dashed #111;
+}
+
+
 
 .three.columns{
     text-align: center;
 }
-
 .titles{
     cursor: pointer;
     text-decoration: bold;
