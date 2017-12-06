@@ -16,9 +16,20 @@ html{
   }
 
 #middleboi{
-    height:100%;
+    margin-top:-8%;
+    height:108%;
     width:100%;
     align-content: right;
+    position: static;
+}
+#lowermiddleboi{
+    position: static;
+    height:80%;
+    width:100%;
+    align-content: left;
+}
+#bork{
+    margin-top:37%;
 }
 
 #profile{
@@ -51,6 +62,7 @@ html{
     width:33%;
     float:left;
 }
+
 #oxfordcontent h1{
     font-weight: bold;
     float: left;
@@ -62,11 +74,38 @@ html{
 }
 #oxfordcontent p{
     float: left;
+    position: static;
     font-size: 1.05em;
     margin-left: 5%;
     margin-right: 5%;
     padding-top:1%;
+    padding-bottom:100%;
     margin-top:1%;
+}
+
+
+#code{
+    width: 67%;
+    float:left;
+    margin-left: -33%;
+}
+#codecontent h1{
+    font-weight: bold;
+    float: right;
+    text-align: left;
+    position: static;
+    width: 29%;
+    margin-right: 2%;
+    font-size: 2.8em;
+}
+#codecontent p{
+    float: right;
+    width: 29%;
+    font-size: 1.05em;
+    margin-right: 2%;
+    padding-top:1%;
+    padding-bottom:100%;
+    margin-top:-2%;
 }
 
 a{
