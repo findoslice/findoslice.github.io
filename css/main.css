@@ -1,5 +1,6 @@
 html{
     width:100%;
+    color: #333;
     scroll-behavior: smooth;
 }
 
@@ -47,15 +48,25 @@ html{
     float:right;
 }
 #oxfordcontent{
-    text-align: center;
     width:33%;
     float:left;
 }
 #oxfordcontent h1{
     font-weight: bold;
     float: left;
+    text-align: left;
+    position: static;
+    width: 100%;
     margin-left: 4%;
-    font-size: 2.5em;
+    font-size: 2.8em;
+}
+#oxfordcontent p{
+    float: left;
+    font-size: 1.05em;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top:1%;
+    margin-top:1%;
 }
 
 a{
@@ -67,7 +78,7 @@ a{
 a:hover{
     color: #111;
     font-weight: 1300;
-    font-size: 1.05em;
+    font-size: 1em;
     border-bottom: 3px dashed #111;
 }
 
