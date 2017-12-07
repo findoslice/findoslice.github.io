@@ -5,6 +5,201 @@
 	<link rel = "stylesheet" href = "./css/normalize.css">
 	<link rel = "stylesheet" href = "./css/main.css">
 	<link rel = "shortcut-icon" href = "./static/favicon.png">
+
+
+
+	
+				
+		
+			
+				<script src="./map_files/js" type="text/javascript"></script>
+			
+			
+		
+		
+		
+		
+		
+		<style type="text/css">
+			  #view-side { height:65%;width:66.7%;position: absolute; alignment:right; margin-top:42.6%;margin-left:33.3%; }
+		</style>
+		
+		<script type="text/javascript">
+			var map = null;
+			var map_markers = [];
+			var map_rectangles = [];
+			var map_circles = [];
+			var map_polygons = [];
+			var map_polylines = [];
+			var prev_infowindow_map = null;
+		
+			function initialize_map() {
+				document.getElementById('view-side').style.display = 'block';
+				map = new google.maps.Map(
+				document.getElementById('view-side'), {
+					center: new google.maps.LatLng(55.9444, -3.187),
+					zoom: 8,
+					mapTypeId: google.maps.MapTypeId.TERRAIN,
+					zoomControl: true,
+					mapTypeControl: true,
+					scaleControl: true,
+					streetViewControl: false,
+					rotateControl: true,
+					scrollwheel: true,
+					fullscreenControl: false
+				});
+		
+				// add gmap markers
+				var raw_markers = [{"infobox": "\u003cb\u003ecrested tit\u003c/b\u003e\u003cbr\u003eSpotted on 2017-12-02", "lat": 55.945076799999995, "lng": -3.1872017464941598}, {"infobox": "\u003cb\u003ecrested tit\u003c/b\u003e\u003cbr\u003eSpotted on 2017-09-10", "lat": 55.6510584, "lng": -3.1893286}, {"infobox": "\u003cb\u003ecrested tit\u003c/b\u003e\u003cbr\u003eSpotted on 2017-06-15", "lat": 55.652606, "lng": -3.1883568}, {"infobox": "\u003cb\u003ecrested tit\u003c/b\u003e\u003cbr\u003eSpotted on 2017-02-07", "lat": 55.71169580000001, "lng": -3.2062009}, {"infobox": "\u003cb\u003ecrested tit\u003c/b\u003e\u003cbr\u003eSpotted on 2017-04-23", "lat": 39.0186196, "lng": 125.7535694}, {"infobox": "\u003cb\u003ecrested tit\u003c/b\u003e\u003cbr\u003eSpotted on 2017-08-08\u003cbr\u003egladhouse reservoir, scotland", "lat": 55.77611645, "lng": -3.1031244902484}, {"infobox": "\u003cb\u003ecrested tit\u003c/b\u003e\u003cbr\u003eSpotted on 1999-11-02\u003cbr\u003ecarrington, scotland", "lat": 55.8342606, "lng": -3.0893241}, {"infobox": "\u003cb\u003ecrested tit\u003c/b\u003e\u003cbr\u003eSpotted on 0069-09-06\u003cbr\u003ebute house, edinburgh", "lat": 55.9521389, "lng": -3.207525}, {"infobox": "\u003cb\u003ecrested tit\u003c/b\u003e\u003cbr\u003eSpotted on 0069-09-06\u003cbr\u003ebute house, edinburgh", "lat": 55.9524183, "lng": -3.208885}, {"infobox": "\u003cb\u003ecrested tit\u003c/b\u003e\u003cbr\u003eSpotted on 0069-09-06\u003cbr\u003ebute house, edinburgh", "lat": 55.9529213, "lng": -3.2080394}, {"infobox": "\u003cb\u003ecrested tit\u003c/b\u003e\u003cbr\u003eSpotted on 0069-09-06\u003cbr\u003ebute house, edinburgh", "lat": 55.9531843, "lng": -3.207882}, {"infobox": "\u003cb\u003ecrested tit\u003c/b\u003e\u003cbr\u003eSpotted on 0069-09-06\u003cbr\u003ebute house, edinburgh", "lat": 55.952013199999996, "lng": -3.2071593000000003}, {"infobox": "\u003cb\u003ecrested tit\u003c/b\u003e\u003cbr\u003eSpotted on 0069-09-06\u003cbr\u003ebute house, edinburgh", "lat": 55.952265499999996, "lng": -3.2082657}, {"infobox": "\u003cb\u003ecrested tit\u003c/b\u003e\u003cbr\u003eSpotted on 2017-08-13\u003cbr\u003epenicuik, scotland", "lat": 55.8282671, "lng": -3.2204827999999996}, {"infobox": "\u003cb\u003ea rogue humanities student\u003c/b\u003e\u003cbr\u003eSpotted on 2017-12-02\u003cbr\u003eappleton tower, edinburgh", "lat": 55.944196700000006, "lng": -3.18694014649416}, {"infobox": "\u003cb\u003ea rogue humanities student\u003c/b\u003e\u003cbr\u003eSpotted on 2017-12-02\u003cbr\u003emcewan hall, edinburgh", "lat": 55.946068499999996, "lng": -3.1901825311472702}, {"infobox": "\u003cb\u003ea rogue humanities student\u003c/b\u003e\u003cbr\u003eSpotted on 2017-12-02\u003cbr\u003escoopz ice cream cafe, edinburgh", "lat": 55.9500713, "lng": -3.1913666}, {"infobox": "\u003cb\u003ea rogue humanities student\u003c/b\u003e\u003cbr\u003eSpotted on 2017-12-02\u003cbr\u003ekings buildings, edinburgh", "lat": 55.923782900000006, "lng": -3.1749238999999996}, {"infobox": "\u003cb\u003ea rogue humanities student\u003c/b\u003e\u003cbr\u003eSpotted on 2017-12-02\u003cbr\u003eholyrood park, edinburgh", "lat": 55.9457879, "lng": -3.16278918582111}, {"infobox": "\u003cb\u003ea rogue humanities student\u003c/b\u003e\u003cbr\u003eSpotted on 2017-12-02\u003cbr\u003emerchiston, edinburgh", "lat": 55.9342794, "lng": -3.2188405}, {"infobox": "\u003cb\u003ea rogue humanities student\u003c/b\u003e\u003cbr\u003eSpotted on 2017-12-02\u003cbr\u003edynamic earth, edinburgh", "lat": 55.9503864, "lng": -3.1737764355888696}, {"infobox": "\u003cb\u003ea rogue humanities student\u003c/b\u003e\u003cbr\u003eSpotted on 2017-12-02\u003cbr\u003eglasgow, scotland", "lat": 55.8559854, "lng": -4.243727099999999}, {"infobox": "\u003cb\u003ea rogue humanities student\u003c/b\u003e\u003cbr\u003eSpotted on 2017-12-02\u003cbr\u003eportobello, edinburgh", "lat": 55.953857, "lng": -3.1149412}, {"infobox": "\u003cb\u003ea rogue humanities student\u003c/b\u003e\u003cbr\u003eSpotted on 2017-12-02\u003cbr\u003epyongyang, north korea", "lat": 39.020165299999995, "lng": 125.7530979}, {"infobox": "\u003cb\u003ea rogue humanities student\u003c/b\u003e\u003cbr\u003eSpotted on 2017-12-02\u003cbr\u003ecomely bank, edinburgh, scotland", "lat": 55.95840690000001, "lng": -3.2222813999999995}, {"infobox": "\u003cb\u003ea rogue humanities student\u003c/b\u003e\u003cbr\u003eSpotted on 2017-12-02\u003cbr\u003ethe white house, USA", "lat": 38.898131299999996, "lng": -77.0355884886228}, {"infobox": "\u003cb\u003ea rogue humanities student\u003c/b\u003e\u003cbr\u003eSpotted on 2017-12-02\u003cbr\u003epyongyang, north korea", "lat": 39.019188699999994, "lng": 125.7542481}, {"infobox": "\u003cb\u003erabbit\u003c/b\u003e\u003cbr\u003eSpotted on 1999-11-02\u003cbr\u003epeebles, scotland", "lat": 55.6514793, "lng": -3.1885168}, {"infobox": "\u003cb\u003erabbit\u003c/b\u003e\u003cbr\u003eSpotted on 2005-04-18\u003cbr\u003eglasgow, scotland", "lat": 55.8565739, "lng": -4.2429837}, {"infobox": "\u003cb\u003erabbit\u003c/b\u003e\u003cbr\u003eSpotted on 2016-11-19\u003cbr\u003est andrews, scotland", "lat": 56.3413475, "lng": -2.7953577}, {"infobox": "\u003cb\u003erabbit\u003c/b\u003e\u003cbr\u003eSpotted on 2016-07-21\u003cbr\u003eeddleston, scotland", "lat": 55.713069600000004, "lng": -3.2070461999999997}, {"infobox": "\u003cb\u003erabbit\u003c/b\u003e\u003cbr\u003eSpotted on 2017-06-18\u003cbr\u003ethankerton, scotland", "lat": 55.6255058, "lng": -3.6337555}, {"infobox": "\u003cb\u003erabbit\u003c/b\u003e\u003cbr\u003eSpotted on 2015-08-02\u003cbr\u003edunfermline", "lat": 56.071965899999995, "lng": -3.4597698}, {"infobox": "\u003cb\u003erabbit\u003c/b\u003e\u003cbr\u003eSpotted on 2011-11-11\u003cbr\u003ebiggar, scotland", "lat": 55.624262, "lng": -3.5221752}, {"infobox": "\u003cb\u003erabbit\u003c/b\u003e\u003cbr\u003eSpotted on 2011-11-11\u003cbr\u003elagavulin, scotland", "lat": 55.6355309, "lng": -6.1281992}, {"infobox": "\u003cb\u003erabbit\u003c/b\u003e\u003cbr\u003eSpotted on 2011-11-11\u003cbr\u003eisle of arran, scotland", "lat": 55.577588500000005, "lng": -5.25269195715707}, {"infobox": "\u003cb\u003erabbit\u003c/b\u003e\u003cbr\u003eSpotted on 2011-11-11\u003cbr\u003edouglas, scotland", "lat": 55.555506799999996, "lng": -3.8426937000000003}, {"infobox": "\u003cb\u003erabbit\u003c/b\u003e\u003cbr\u003eSpotted on 2016-12-09\u003cbr\u003elivingston, scotland", "lat": 55.88721880000001, "lng": -3.5260960000000003}, {"infobox": "\u003cb\u003erabbit\u003c/b\u003e\u003cbr\u003eSpotted on 2016-12-09\u003cbr\u003ebruichladich, scotland", "lat": 39.0186005, "lng": 125.75347070000001}, {"infobox": "\u003cb\u003erabbit\u003c/b\u003e\u003cbr\u003eSpotted on 2016-12-09\u003cbr\u003ebruichladdich, scotland", "lat": 55.766555100000005, "lng": -6.362258499999999}, {"infobox": "\u003cb\u003erabbit\u003c/b\u003e\u003cbr\u003eSpotted on 2017-09-02\u003cbr\u003estranraer, scotland", "lat": 54.9030884, "lng": -5.0261263000000005}, {"infobox": "\u003cb\u003erabbit\u003c/b\u003e\u003cbr\u003eSpotted on 2017-09-02\u003cbr\u003estranraer, scotland", "lat": 54.9014398, "lng": -5.0275973}, {"infobox": "\u003cb\u003erabbit\u003c/b\u003e\u003cbr\u003eSpotted on 2017-09-02\u003cbr\u003estranraer, scotland", "lat": 54.90236839999999, "lng": -5.026031000000001}, {"infobox": "\u003cb\u003erabbit\u003c/b\u003e\u003cbr\u003eSpotted on 2017-09-02\u003cbr\u003efort augustus, scotland", "lat": 57.143785900000005, "lng": -4.681958}, {"infobox": "\u003cb\u003erabbit\u003c/b\u003e\u003cbr\u003eSpotted on 2017-09-02\u003cbr\u003efort william, scotland", "lat": 56.81716099999999, "lng": -5.1111028}, {"infobox": "\u003cb\u003ered squirrel\u003c/b\u003e\u003cbr\u003eSpotted on 2018-11-02\u003cbr\u003ecosta coffee, peebles, scotland", "lat": 39.0186663, "lng": 125.7532782}, {"infobox": "\u003cb\u003ered squirrel\u003c/b\u003e\u003cbr\u003eSpotted on 2017-12-03\u003cbr\u003ecosta coffee, peebles, scotland", "lat": 39.01973279999999, "lng": 125.7540003}, {"infobox": "\u003cb\u003ered squirrel\u003c/b\u003e\u003cbr\u003eSpotted on 2018-01-02\u003cbr\u003ecosta coffee, peebles, scotland", "lat": 55.651769599999994, "lng": -3.1883643999999998}, {"infobox": "\u003cb\u003ered squirrel\u003c/b\u003e\u003cbr\u003eSpotted on 2018-01-02\u003cbr\u003ecosta coffee, peebles, scotland", "lat": 55.6523226, "lng": -3.1892503999999997}, {"infobox": "\u003cb\u003ered squirrel\u003c/b\u003e\u003cbr\u003eSpotted on 2018-01-02\u003cbr\u003ecosta coffee, peebles, scotland", "lat": 55.652287199999996, "lng": -3.1892812999999998}, {"infobox": "\u003cb\u003enessie\u003c/b\u003e\u003cbr\u003eSpotted on 2017-09-02\u003cbr\u003eloch ness, scotland", "lat": 57.2748044, "lng": -4.48486885096968}, {"infobox": "\u003cb\u003enessie\u003c/b\u003e\u003cbr\u003eSpotted on 2017-09-02\u003cbr\u003emalaga, spain", "lat": 36.7205412, "lng": -4.421044800000001}, {"infobox": "\u003cb\u003edon sanella\u003c/b\u003e\u003cbr\u003eSpotted on 2017-09-02\u003cbr\u003enicosia, cyprus", "lat": 35.1732962, "lng": 33.364334899999996}, {"infobox": "\u003cb\u003emichael fourman\u003c/b\u003e\u003cbr\u003eSpotted on 2019-12-25\u003cbr\u003emoscow russia", "lat": 55.751085599999996, "lng": 37.617804199999995}, {"infobox": "\u003cb\u003ea bear, probably\u003c/b\u003e\u003cbr\u003eSpotted on 2019-12-25\u003cbr\u003esiberia, russia", "lat": 55.7581961, "lng": 37.587326600000004}, {"infobox": "\u003cb\u003ea bear, probably\u003c/b\u003e\u003cbr\u003eSpotted on 2019-12-25\u003cbr\u003evladivostok, russia", "lat": 43.1143469, "lng": 131.88474589999998}, {"infobox": "\u003cb\u003ea bear, probably\u003c/b\u003e\u003cbr\u003eSpotted on 2019-12-25\u003cbr\u003eyekaterinsburg, russia", "lat": 64.6869752, "lng": 97.745198}, {"infobox": "\u003cb\u003ea bear, probably\u003c/b\u003e\u003cbr\u003eSpotted on 2019-12-25\u003cbr\u003eyekaterinsburg, russia", "lat": 64.6861713, "lng": 97.7460452}, {"infobox": "\u003cb\u003ea bear, probably\u003c/b\u003e\u003cbr\u003eSpotted on 2019-12-25\u003cbr\u003eyekaterinsburg, russia", "lat": 64.6862343, "lng": 97.7454633}, {"infobox": "\u003cb\u003ea bear, probably\u003c/b\u003e\u003cbr\u003eSpotted on 2019-12-25\u003cbr\u003eyekaterinsburg, russia", "lat": 64.68713690000001, "lng": 97.7457847}, {"infobox": "\u003cb\u003ea bear, probably\u003c/b\u003e\u003cbr\u003eSpotted on 2019-12-25\u003cbr\u003eyekaterinsburg, russia", "lat": 64.686797, "lng": 97.7444644}, {"infobox": "\u003cb\u003ea bear, probably\u003c/b\u003e\u003cbr\u003eSpotted on 2019-12-25\u003cbr\u003eyekaterinsburg, russia", "lat": 64.6867831, "lng": 97.74562279999999}, {"infobox": "\u003cb\u003ea bear, probably\u003c/b\u003e\u003cbr\u003eSpotted on 2019-12-25\u003cbr\u003eyekaterinsburg, russia", "lat": 64.68580610000001, "lng": 97.7448586}, {"infobox": "\u003cb\u003ea bear, probably\u003c/b\u003e\u003cbr\u003eSpotted on 2019-12-25\u003cbr\u003eyekaterinsburg, russia", "lat": 64.68581800000001, "lng": 97.74601779999999}, {"infobox": "\u003cb\u003eFindlay\u003c/b\u003e\u003cbr\u003eSpotted on 0322-02-01\u003cbr\u003eMy bathroom", "lat": 34.545141799999996, "lng": -119.78817360000001}, {"infobox": "\u003cb\u003ea bald eagle\u003c/b\u003e\u003cbr\u003eSpotted on 2017-12-03\u003cbr\u003ekittlegairy avenue, peebles, scotland", "lat": 55.6418329, "lng": -3.1682061}, {"infobox": "\u003cb\u003etavo mama\u003c/b\u003e\u003cbr\u003eSpotted on 2017-12-03\u003cbr\u003elithuania", "lat": 55.3506606, "lng": 23.7509399}];
+				for(i=0; i<67;i++) {
+					map_markers[i] = new google.maps.Marker({
+						position: new google.maps.LatLng(raw_markers[i].lat, raw_markers[i].lng),
+						map: map,
+						icon: raw_markers[i].icon,
+						title: raw_markers[i].title ? raw_markers[i].title : null
+					});
+		
+				   if(raw_markers[i].infobox)
+				   {
+						google.maps.event.addListener(
+								map_markers[i],
+								'click',
+								getInfoCallback(map, raw_markers[i].infobox)
+						);
+				   }
+				}
+		
+				
+		
+				// add rectangles
+				var raw_rectangles = [];
+				for(i = 0; i < 0; i++) {
+					map_rectangles[i] = new google.maps.Rectangle({
+						strokeColor: raw_rectangles[i].stroke_color,
+						strokeOpacity: raw_rectangles[i].stroke_opacity,
+						strokeWeight: raw_rectangles[i].stroke_weight,
+						fillColor: raw_rectangles[i].fill_color,
+						fillOpacity: raw_rectangles[i].fill_opacity,
+						map: map,
+						bounds: {
+							north: raw_rectangles[i].bounds.north,
+							east: raw_rectangles[i].bounds.east,
+							south: raw_rectangles[i].bounds.south,
+							west: raw_rectangles[i].bounds.west },
+					});
+		
+				   if(raw_rectangles[i].infobox)
+				   {
+						google.maps.event.addListener(
+								map_rectangles[i],
+								'click',
+								getInfoCallback(map, raw_rectangles[i].infobox)
+						);
+				   }
+				}
+		
+				// add circles
+				var raw_circles = [];
+				for(i = 0; i < 0; i++) {
+					map_circles[i] = new google.maps.Circle({
+						strokeColor: raw_circles[i].stroke_color,
+						strokeOpacity: raw_circles[i].stroke_opacity,
+						strokeWeight: raw_circles[i].stroke_weight,
+						fillColor: raw_circles[i].fill_color,
+						fillOpacity: raw_circles[i].fill_opacity,
+						map: map,
+						center: {
+							lat: raw_circles[i].center.lat,
+							lng: raw_circles[i].center.lng,
+						},
+						radius: raw_circles[i].radius
+					});
+		
+				   if(raw_circles[i].infobox)
+				   {
+						google.maps.event.addListener(
+								map_circles[i],
+								'click',
+								getInfoCallback(map, raw_circles[i].infobox)
+						);
+				   }
+				}
+		
+				// add polygons
+				var raw_polygons = [];
+				for(i = 0; i < 0; i++) {
+					map_polygons[i] = new google.maps.Polygon({
+						strokeColor: raw_polygons[i].stroke_color,
+						strokeOpacity: raw_polygons[i].stroke_opacity,
+						strokeWeight: raw_polygons[i].stroke_weight,
+						fillOpacity: raw_polygons[i].fill_opacity,
+						fillColor: raw_polygons[i].fill_color,
+						path: raw_polygons[i].path,
+						map: map,
+						geodesic: true
+					});
+		
+				   if(raw_polygons[i].infobox)
+				   {
+						google.maps.event.addListener(
+								map_polygons[i],
+								'click',
+								getInfoCallback(map, raw_polygons[i].infobox)
+						);
+				   }
+				}
+		
+				// add polylines
+				var raw_polylines = [];
+				for(i = 0; i < 0; i++) {
+					map_polylines[i] = new google.maps.Polyline({
+						strokeColor: raw_polylines[i].stroke_color,
+						strokeOpacity: raw_polylines[i].stroke_opacity,
+						strokeWeight: raw_polylines[i].stroke_weight,
+						path: raw_polylines[i].path,
+						map: map,
+						geodesic: true
+					});
+		
+				   if(raw_polylines[i].infobox)
+				   {
+						google.maps.event.addListener(
+								map_polylines[i],
+								'click',
+								getInfoCallback(map, raw_polylines[i].infobox)
+						);
+				   }
+				}
+		
+				
+			}
+		
+			function getInfoCallback(map, content) {
+				var infowindow = new google.maps.InfoWindow({content: content});
+				return function(ev) {
+					if( prev_infowindow_map ) {
+						prev_infowindow_map.close();
+					}
+					prev_infowindow_map = infowindow;
+					infowindow.setPosition(ev.latLng);
+					infowindow.setContent(content);
+					infowindow.open(map, this);
+				};
+			}
+		
+			
+				google.maps.event.addDomListener(window, 'load', initialize_map);
+			
+		
+		</script>
+			<script type="text/javascript" charset="UTF-8" src="./map_files/common.js"></script><script type="text/javascript" charset="UTF-8" src="./map_files/map.js"></script><script type="text/javascript" charset="UTF-8" src="./map_files/util.js"></script><script type="text/javascript" charset="UTF-8" src="./map_files/marker.js"></script><style type="text/css">.gm-style {
+				font: 400 11px Roboto, Arial, sans-serif;
+				text-decoration: none;
+			  }
+			  .gm-style img { max-width: none; }</style><script type="text/javascript" charset="UTF-8" src="./map_files/onion.js"></script><script type="text/javascript" charset="UTF-8" src="./map_files/infowindow.js"></script><script type="text/javascript" charset="UTF-8" src="./map_files/ViewportInfoService.GetViewportInfo"></script><script type="text/javascript" charset="UTF-8" src="./map_files/controls.js"></script><script type="text/javascript" charset="UTF-8" src="./map_files/AuthenticationService.Authenticate"></script><script type="text/javascript" charset="UTF-8" src="./map_files/vt"></script><script type="text/javascript" charset="UTF-8" src="./map_files/vt(1)"></script><script type="text/javascript" charset="UTF-8" src="./map_files/vt(2)"></script><script type="text/javascript" charset="UTF-8" src="./map_files/stats.js"></script><script type="text/javascript" charset="UTF-8" src="./map_files/QuotaService.RecordEvent"></script>
+
+
+
 	<title>
 		Findlay Smith
 	</title>
@@ -19,7 +214,7 @@
 				<div class = "twelve columns">
 					<p id = "name" class = "four columns offset-by-four" style="text-align:center;"> <b>Findlay Smith </b></p>
 				</div>
-				<br>
+				<br><br>
 				<p class = "eight columns offset-by-two" id = "bio"> First year <a target="_blank" href = "https://www.ed.ac.uk/studying/undergraduate/degrees/index.php?action=view&code=F355">computational physics</a> student, studying at the University of Edinburgh. I have a particular interest in backend web development, natural language processing, and event simulation. Oh, and free pizza.</p>
 			</div>
 		<div id = "links" class = "eight columns offset-by-two">
@@ -67,11 +262,13 @@
 			</h1>
 			<div>
 				<p>
-					cool moustache wario, try messin with the mad monk you'll be sorry yo, how many dictators does it take, to turn an empire into a union of ruinous states? it's a disgrace what you did to your own people, your daddy beat you like a dog and now you're evil, you're from georgia sweet georgia and the history books unfold ya, as a messed up motherfucker bent in the mind who built a super power but he paid the price with the endless destruction of russian lives you're a man of steel I spit krpytonite, big dick mystic known to hypnotise I could end you with a whisper to your wife.
+					look into my eyes you percerted witch see the soul of the man who made mother russia his bitch, you think I give a fuck about my wife? my own son got locked up in prison, and I didn't save his life. You got off easy when they pickled that moose cock. I'd leave your neck in a noose in a trench and shot. your whole family shot, all your wizard friend sshot anybody who sold you pierogi shot. starve you for days til you waste away, I even crushed motherfuckers when I laid in state, pride of lenin took trotsky out of the picture dropped a hammer on you harder than I bitch slapped hitler
 				</p>
 			</div>
 		</div>
-		<div id= "bork"></div>
+		<div id= "bork">
+				<div id="view-side" class="map" style="display: block; overflow: hidden;"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"><div class="gm-style" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;"><div tabindex="0" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; cursor: url(&quot;http://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;) 8 8, default;"><div style="z-index: 1; position: absolute; top: 0px; left: 0px; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 220, 110);"><div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="width: 256px; height: 256px; position: absolute; left: 532px; top: -37px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 276px; top: -37px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 788px; top: -37px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 20px; top: -37px;"></div><div style="width: 256px; height: 256px; position: absolute; left: -236px; top: -37px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1044px; top: -37px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 276px; top: -293px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 20px; top: -293px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 532px; top: -293px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 788px; top: -293px;"></div><div style="width: 256px; height: 256px; position: absolute; left: -236px; top: -293px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1044px; top: -293px;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: -1;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 532px; top: -37px;"><canvas draggable="false" height="256" width="256" style="user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 276px; top: -37px;"><canvas draggable="false" height="256" width="256" style="user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 788px; top: -37px;"><canvas draggable="false" height="256" width="256" style="user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 20px; top: -37px;"><canvas draggable="false" height="256" width="256" style="user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -236px; top: -37px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1044px; top: -37px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 276px; top: -293px;"><canvas draggable="false" height="256" width="256" style="user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 20px; top: -293px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 532px; top: -293px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 788px; top: -293px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -236px; top: -293px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1044px; top: -293px;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="position: absolute; left: 532px; top: -37px; transition: opacity 200ms ease-out;"><img draggable="false" alt="" src="./map_files/vt(3)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 276px; top: -37px; transition: opacity 200ms ease-out;"><img draggable="false" alt="" src="./map_files/vt(4)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 788px; top: -37px; transition: opacity 200ms ease-out;"><img draggable="false" alt="" src="./map_files/vt(5)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 20px; top: -37px; transition: opacity 200ms ease-out;"><img draggable="false" alt="" src="./map_files/vt(6)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -236px; top: -37px; transition: opacity 200ms ease-out;"><img draggable="false" alt="" src="./map_files/vt(7)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 1044px; top: -37px;"><img draggable="false" alt="" src="./map_files/vt(8)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 276px; top: -293px;"><img draggable="false" alt="" src="./map_files/vt(9)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 20px; top: -293px;"><img draggable="false" alt="" src="./map_files/vt(10)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 532px; top: -293px;"><img draggable="false" alt="" src="./map_files/vt(11)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 788px; top: -293px;"><img draggable="false" alt="" src="./map_files/vt(12)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -236px; top: -293px;"><img draggable="false" alt="" src="./map_files/vt(13)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 1044px; top: -293px;"><img draggable="false" alt="" src="./map_files/vt(14)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div></div></div><div style="z-index: 2; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; opacity: 0;" class="gm-style-pbc"><p class="gm-style-pbt"></p></div><div style="z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px;"><div style="z-index: 1; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px;"></div></div><div style="z-index: 4; position: absolute; top: 0px; left: 0px; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 220, 110);"><div style="position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"><div style="cursor: default; position: absolute; width: 183px; height: 66px; left: 567px; top: 53px; z-index: 53;"><div style="position: absolute; left: 0px; top: 0px;"><div style="width: 0px; height: 0px; border-right: 10px solid transparent; border-left: 10px solid transparent; border-top: 24px solid rgba(0, 0, 0, 0.1); position: absolute; left: 82px; top: 66px;"></div><div style="position: absolute; left: 0px; top: 0px; background-color: rgba(0, 0, 0, 0.2); border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; width: 183px; height: 66px;"></div><div style="border-top-width: 24px; position: absolute; left: 82px; top: 63px;"><div style="position: absolute; overflow: hidden; left: -6px; top: -1px; width: 16px; height: 30px;"><div style="position: absolute; left: 6px; background-color: rgb(255, 255, 255); transform: skewX(22.6deg); transform-origin: 0px 0px 0px; height: 24px; width: 10px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 6px;"></div></div><div style="position: absolute; overflow: hidden; top: -1px; left: 10px; width: 16px; height: 30px;"><div style="position: absolute; left: 0px; background-color: rgb(255, 255, 255); transform: skewX(-22.6deg); transform-origin: 10px 0px 0px; height: 24px; width: 10px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 6px;"></div></div></div><div style="position: absolute; left: 1px; top: 1px; border-radius: 2px; background-color: rgb(255, 255, 255); width: 181px; height: 64px;"></div></div><div class="gm-style-iw" style="top: 9px; position: absolute; left: 15px; width: 153px;"><div style="display: inline-block; overflow: auto; max-height: 199px; max-width: 654px;"><div style="overflow: auto;"><b>rabbit</b><br>Spotted on 2016-12-09<br>livingston, scotland</div></div><div style="border-top: 1px solid rgb(204, 204, 204); margin-top: 9px; padding: 6px; visibility: hidden; font-size: 13px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; font-family: Roboto, Arial; display: none;"><a href="http://localhost:5000/gay" target="_blank" style="cursor: pointer; color: rgb(66, 127, 237); text-decoration: none;">View on Google Maps</a></div></div><div style="width: 13px; height: 13px; overflow: hidden; position: absolute; opacity: 0.7; right: 12px; top: 10px; z-index: 10000; cursor: pointer;"><img alt="" src="./map_files/mapcnt6.png" draggable="false" style="position: absolute; left: -2px; top: -336px; width: 59px; height: 492px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div></div></div></div><div style="margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;"><a target="_blank" href="https://maps.google.com/maps?ll=56.307212,-4.395496&amp;z=8&amp;t=p&amp;hl=en&amp;gl=US&amp;mapclient=apiv3" title="Click to see this area on Google Maps" style="position: static; overflow: visible; float: none; display: inline;"><div style="width: 66px; height: 26px; cursor: pointer;"><img alt="" src="./map_files/google4.png" draggable="false" style="position: absolute; left: 0px; top: 0px; width: 66px; height: 26px; user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></a></div><div style="background-color: white; padding: 15px 21px; border: 1px solid rgb(171, 171, 171); font-family: Roboto, Arial, sans-serif; color: rgb(34, 34, 34); box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; z-index: 10000002; display: none; width: 256px; height: 148px; position: absolute; left: 570px; top: 67px;"><div style="padding: 0px 0px 10px; font-size: 16px;">Map Data</div><div style="font-size: 13px;">Map data ©2017 Google</div><div style="width: 13px; height: 13px; overflow: hidden; position: absolute; opacity: 0.7; right: 12px; top: 12px; z-index: 10000; cursor: pointer;"><img alt="" src="./map_files/mapcnt6.png" draggable="false" style="position: absolute; left: -2px; top: -336px; width: 59px; height: 492px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div><div class="gmnoprint" style="z-index: 1000001; position: absolute; right: 175px; bottom: 0px; width: 121px;"><div draggable="false" class="gm-style-cc" style="user-select: none; height: 14px; line-height: 14px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a style="color: rgb(68, 68, 68); text-decoration: none; cursor: pointer; display: none;">Map Data</a><span style="">Map data ©2017 Google</span></div></div></div><div class="gmnoscreen" style="position: absolute; right: 0px; bottom: 0px;"><div style="font-family: Roboto, Arial, sans-serif; font-size: 11px; color: rgb(68, 68, 68); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);">Map data ©2017 Google</div></div><div class="gmnoprint gm-style-cc" draggable="false" style="z-index: 1000001; user-select: none; height: 14px; line-height: 14px; position: absolute; right: 0px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a href="https://www.google.com/intl/en_US/help/terms_maps.html" target="_blank" style="text-decoration: none; cursor: pointer; color: rgb(68, 68, 68);">Terms of Use</a></div></div><button draggable="false" title="Toggle fullscreen view" aria-label="Toggle fullscreen view" type="button" style="background: none; border: 0px; margin: 10px 14px; padding: 0px; position: absolute; cursor: pointer; user-select: none; width: 25px; height: 25px; overflow: hidden; display: none; top: 0px; right: 0px;"><img alt="" src="./map_files/sv9.png" draggable="false" class="gm-fullscreen-control" style="position: absolute; left: -52px; top: -86px; width: 164px; height: 175px; user-select: none; border: 0px; padding: 0px; margin: 0px;"></button><div draggable="false" class="gm-style-cc" style="user-select: none; height: 14px; line-height: 14px; position: absolute; right: 0px; bottom: 0px; display: none;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a target="_new" title="Report errors in the road map or imagery to Google" href="https://www.google.com/maps/@56.3072119,-4.3954961,8z/data=!5m1!1e4!10m1!1e1!12b1?source=apiv3&amp;rapsrc=apiv3" style="font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); text-decoration: none; position: relative;">Report a map error</a></div></div><div class="gmnoprint gm-bundled-control gm-bundled-control-on-bottom" draggable="false" controlwidth="28" controlheight="55" style="margin: 10px; user-select: none; position: absolute; bottom: 69px; right: 28px;"><div class="gmnoprint" controlwidth="28" controlheight="55" style="position: absolute; left: 0px; top: 0px;"><div draggable="false" style="user-select: none; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-radius: 2px; cursor: pointer; background-color: rgb(255, 255, 255); width: 28px; height: 55px;"><button draggable="false" title="Zoom in" aria-label="Zoom in" type="button" style="background: none; display: block; border: 0px; margin: 0px; padding: 0px; position: relative; cursor: pointer; user-select: none; width: 28px; height: 27px; top: 0px; left: 0px;"><div style="overflow: hidden; position: absolute; width: 15px; height: 15px; left: 7px; top: 6px;"><img alt="" src="./map_files/tmapctrl.png" draggable="false" style="position: absolute; left: 0px; top: 0px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none; width: 120px; height: 54px;"></div></button><div style="position: relative; overflow: hidden; width: 67%; height: 1px; left: 16%; background-color: rgb(230, 230, 230); top: 0px;"></div><button draggable="false" title="Zoom out" aria-label="Zoom out" type="button" style="background: none; display: block; border: 0px; margin: 0px; padding: 0px; position: relative; cursor: pointer; user-select: none; width: 28px; height: 27px; top: 0px; left: 0px;"><div style="overflow: hidden; position: absolute; width: 15px; height: 15px; left: 7px; top: 6px;"><img alt="" src="./map_files/tmapctrl.png" draggable="false" style="position: absolute; left: 0px; top: -15px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none; width: 120px; height: 54px;"></div></button></div></div><div class="gmnoprint" controlwidth="28" controlheight="0" style="display: none; position: absolute;"><div title="Rotate map 90 degrees" style="width: 28px; height: 28px; overflow: hidden; position: absolute; background-color: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-radius: 2px; cursor: pointer; display: none;"><img alt="" src="./map_files/tmapctrl4.png" draggable="false" style="position: absolute; left: -141px; top: 6px; width: 170px; height: 54px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div class="gm-tilt" style="width: 28px; height: 28px; overflow: hidden; position: absolute; background-color: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-radius: 2px; top: 0px; cursor: pointer;"><img alt="" src="./map_files/tmapctrl4.png" draggable="false" style="position: absolute; left: -141px; top: -13px; width: 170px; height: 54px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div></div><div draggable="false" class="gm-style-cc" style="position: absolute; user-select: none; height: 14px; line-height: 14px; right: 71px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><span>20 km&nbsp;</span><div style="position: relative; display: inline-block; height: 8px; bottom: -1px; width: 62px;"><div style="width: 100%; height: 4px; position: absolute; left: 0px; top: 0px;"></div><div style="width: 4px; height: 8px; left: 0px; top: 0px; background-color: rgb(255, 255, 255);"></div><div style="width: 4px; height: 8px; position: absolute; background-color: rgb(255, 255, 255); right: 0px; bottom: 0px;"></div><div style="position: absolute; background-color: rgb(102, 102, 102); height: 2px; left: 1px; bottom: 1px; right: 1px;"></div><div style="position: absolute; width: 2px; height: 6px; left: 1px; top: 1px; background-color: rgb(102, 102, 102);"></div><div style="width: 2px; height: 6px; position: absolute; background-color: rgb(102, 102, 102); bottom: 1px; right: 1px;"></div></div></div></div><div class="gmnoprint" style="margin: 10px; z-index: 0; position: absolute; cursor: pointer; left: 0px; top: 0px;"><div class="gm-style-mtc" style="float: left; position: relative;"><div role="button" tabindex="0" title="Show street map" aria-label="Show street map" aria-pressed="true" draggable="false" style="direction: ltr; overflow: hidden; text-align: center; position: relative; color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 8px; border-bottom-left-radius: 2px; border-top-left-radius: 2px; -webkit-background-clip: padding-box; background-clip: padding-box; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; min-width: 22px; font-weight: 500;">Map</div><div style="background-color: white; z-index: -1; padding: 2px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; position: absolute; left: 0px; top: 29px; text-align: left; display: none;"><div draggable="false" title="Show street map with terrain" style="color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 6px 8px 6px 6px; direction: ltr; text-align: left; white-space: nowrap;"><span role="checkbox" style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; background-color: rgb(255, 255, 255); border: 1px solid rgb(198, 198, 198); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle;"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden;"><img alt="" src="./map_files/imgs8.png" draggable="false" style="position: absolute; left: -52px; top: -44px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none; width: 68px; height: 67px;"></div></span><label style="vertical-align: middle; cursor: pointer;">Terrain</label></div></div></div><div class="gm-style-mtc" style="float: left; position: relative;"><div role="button" tabindex="0" title="Show satellite imagery" aria-label="Show satellite imagery" aria-pressed="false" draggable="false" style="direction: ltr; overflow: hidden; text-align: center; position: relative; color: rgb(86, 86, 86); font-family: Roboto, Arial, sans-serif; user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 8px; border-bottom-right-radius: 2px; border-top-right-radius: 2px; -webkit-background-clip: padding-box; background-clip: padding-box; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; min-width: 40px; border-left: 0px;">Satellite</div><div style="background-color: white; z-index: -1; padding: 2px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; position: absolute; right: 0px; top: 29px; text-align: left; display: none;"><div draggable="false" title="Show imagery with street names" style="color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 6px 8px 6px 6px; direction: ltr; text-align: left; white-space: nowrap;"><span role="checkbox" style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; background-color: rgb(255, 255, 255); border: 1px solid rgb(198, 198, 198); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle;"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden;"><img alt="" src="./map_files/imgs8.png" draggable="false" style="position: absolute; left: -52px; top: -44px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none; width: 68px; height: 67px;"></div></span><label style="vertical-align: middle; cursor: pointer;">Labels</label></div></div></div></div></div></div></div>
+		</div>
 </div>
 </body>
 </html>
