@@ -2,28 +2,18 @@
 <html>
 <head>
 	<link rel = "stylesheet" href = "./css/skeleton.css">
-	<link rel = "stylesheet" href = "./css/normalize.css">
-	<link rel = "stylesheet" href = "./css/main.css">
-	<link rel = "shortcut-icon" href = "./static/favicon.png">
+
+	<script type="application/javascript" src="https://unpkg.com/react@16.0.0/umd/react.development.min.js"></script>
+  	<script type="application/javascript" src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.min.js"></script>
+	<script type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+	
+	<script src="js/main.js"></script>
+
 	<title>
 		Findlay Smith
 	</title>
 </head>
 <body>
-	<div id = "topboi">
-	<div class = "container">
-		<div class = "twelve columns">
-					<img id = "profile" src="https://tardis.ed.ac.uk/~findoslice/profile.jpg">
-				<br>
-				<br>
-				<br>
-				<div class = "twelve columns">
-					<p id = "name" class = "four columns offset-by-four" style="text-align:center;"> <b>Findlay Smith </b></p>
-				</div>
-				<br><br><br>
-				<p class = "eight columns offset-by-two" id = "bio"> Second year <a target="_blank" href = "https://www.ed.ac.uk/studying/undergraduate/degrees/index.php?action=view&code=F355">computational physics</a> student, studying at the University of Edinburgh. President @ <a target = "_blank"href = "https://comp-soc.com">CompSoc Edinburgh</a> I like hackathons, web development, and simulation. Oh, and free pizza.</p>
-			</div>
-		</div>
-	</div>
-	</div>
+	<div id="root"></div>
+	<ShoppingList name="yeet"/>
 </body>
