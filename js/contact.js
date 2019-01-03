@@ -2,7 +2,7 @@
 
 const Icon = (props) => {
     return(
-        <a href = {props.link} className = "contacticon">
+        <a href = {props.link} className = "contacticon" target="_blank">
             <div className = {props.fa}></div>
         </a>
     )

@@ -27,6 +27,7 @@ div {
     position: fixed;
     display: inline-block;
     text-align: center;
+    transition: all 350ms ease-in;
 }
 
 #content {
@@ -96,6 +97,7 @@ div {
 #contactlinks div {
     width: 60%;
     margin-left: 20%;
+    transition: all 350ms ease-in;
 }
 
 .contacticon {
@@ -105,6 +107,11 @@ div {
     margin-top: 45%;
     margin-left: 5%;
     display: inline-block;
+}
+
+.contacticon :hover {
+    color: rgba(5,5,5,0.8);
+    transition: all 350ms ease-in;
 }
 
 #cv {
