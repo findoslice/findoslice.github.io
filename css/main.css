@@ -94,8 +94,8 @@ div {
 }
 
 #contactlinks div {
-    width: 50%;
-    margin-left: 25%;
+    width: 60%;
+    margin-left: 20%;
 }
 
 .contacticon {
@@ -103,6 +103,14 @@ div {
     width: 20%;
     height:10%;
     margin-top: 45%;
-    margin-left: 10%;
+    margin-left: 5%;
     display: inline-block;
+}
+
+#cv {
+    width: 70%;
+    height: 80%;
+    margin-left: 24%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }

@@ -2,7 +2,7 @@
 
 const NavButton = (props) => {
   return (
-    <a href = {"/" + props.name + ".html"}>
+    <a href = {"/" + props.name.toLowerCase() + ".html"}>
       <div className = "navbutton">
         {props.name}
       </div>
@@ -15,17 +15,19 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-                    paths: ['ABOUT', 'BLOG', 'CV', 'CONTACT']
+                    paths: ['ABOUT', 'BLOG', 'CV', 'LINKS']
                  }
   }
 
   render() {
     return (
       <span>
-        <img src = "../static/profile-img.jpg" id = "profile"></img>
-        <h1>
-          Findlay<br></br>Smith
-        </h1>
+        <a href = "/">
+          <img src = "../static/profile-img.jpg" id = "profile"></img>
+          <h1>
+            Findlay<br></br>Smith
+          </h1>
+        </a>
         <p>
           Physicist|Hacker|Pizza Enthusiast
         </p>
