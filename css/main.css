@@ -1,60 +1,84 @@
-body{
-    height:100vh;
-    width:100vw;
-    margin-top:0%;
-    z-index:2;
-    background: rgba(100, 230, 210, 1); /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(left top, rgba(100, 230, 230, 1), rgb(30, 60, 60)); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(bottom right, rgba(100, 230, 230, 1), rgb(30, 60, 60)); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(bottom right, rgba(100, 230, 230, 1), rgb(30, 60, 60)); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to bottom right, rgba(100, 230, 230, 1), rgb(30, 60, 60)); /* Standard syntax */
-    background-repeat:no-repeat;
-  }
-
-
-#profile{
-    border-radius:200%;
-    height:25%;
-    width:25%;
-    margin-left:37.5%;
-    margin-top:15%;
-    cursor: default;
-    border-bottom: 0px;
-}
-#name{
-    font-size: 3em;
-    text-align: center;
-    padding-bottom:23.3%;
-    margin-bottom:5%;
-}
-#bio{
-    text-align:center;
-    margin-top:-25%;
-}
-#links{
-    margin-top:-11%;
-    margin-bottom:15.5%;
-}
-a{
-    text-decoration:none;
-    color: #222;
-    font-weight: bold;
-    border-bottom: 2px dashed #222;
-}
-a:hover{
-    color: #111;
-    font-weight: 1300;
-    font-size: 1em;
-    border-bottom: 3px dashed #111;
+body {
+    font-family: "Merriweather", serif;
+    font-weight: 300;
+    background-image: url("../static/paper-background4.jpg");
 }
 
-
-
-
-.three.columns{
-    text-align: center;
-}
-.titles{
+a {
+    text-decoration: none;
+    color: black;
     cursor: pointer;
-    text-decoration: bold;
+}
+
+/*TODO: properly center navbar buttons*/
+
+#navbar {
+    border-right: 1px solid black;
+    background-color: rgba(245, 245, 245, 0.5);
+    height: 100%;
+    width: 18%;
+    top: 0;
+    left: 0;
+    align-self: left;
+    position: fixed;
+    display: inline-block;
+    text-align: center;
+}
+
+#content {
+    height: 100%;
+    margin-left: 18%;
+    display: inline-block;
+    align-content: center;
+}
+
+#content div {
+    position: fixed;
+    margin-left:41%;
+    margin-top: 10%;
+    font-size: 100pt;
+}
+
+#content h1 {
+    position: fixed;
+    text-align: center;
+    margin-left:35%;
+    margin-top: 25%;
+}
+
+#profile {
+    display: block;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 10%;
+    border-radius: 100%;
+    align-self: center;
+}
+
+#navbar p {
+    font-size: 100%;
+}
+
+
+#navbuttons { 
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 20pt;
+    color: black;
+}
+
+.navbutton {
+    text-align: center;
+    width: 100%;
+    height: 5%;
+    line-height: 300%;
+    display: inline-block;
+    vertical-align: middle;
+    transition: all 350ms ease-in;
+}
+
+
+#navbuttons :hover {
+    background-color: rgba(225, 225, 225, 0.9);
+    transition: all 350ms ease-in;
 }
