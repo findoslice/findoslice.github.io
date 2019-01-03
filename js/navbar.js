@@ -2,8 +2,8 @@
 
 const NavButton = (props) => {
   return (
-    <a href = "/">
-      <div class = "navbutton">
+    <a href = {"/" + props.name + ".html"}>
+      <div className = "navbutton">
         {props.name}
       </div>
     </a>
@@ -15,7 +15,7 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-                    paths: ['about', 'blog', 'CV', 'contact']
+                    paths: ['ABOUT', 'BLOG', 'CV', 'CONTACT']
                  }
   }
 

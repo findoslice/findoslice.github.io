@@ -10,6 +10,10 @@ a {
     cursor: pointer;
 }
 
+div {
+    position: relative;
+}
+
 /*TODO: properly center navbar buttons*/
 
 #navbar {
@@ -81,4 +85,24 @@ a {
 #navbuttons :hover {
     background-color: rgba(225, 225, 225, 0.9);
     transition: all 350ms ease-in;
+}
+
+#contactlinks {
+    margin-left: 18%;
+    width: 82%;
+    align-content: center;
+}
+
+#contactlinks div {
+    width: 50%;
+    margin-left: 25%;
+}
+
+.contacticon {
+    font-size: 80pt;
+    width: 20%;
+    height:10%;
+    margin-top: 45%;
+    margin-left: 10%;
+    display: inline-block;
 }
