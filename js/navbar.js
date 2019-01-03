@@ -2,7 +2,7 @@
 
 const NavButton = (props) => {
   return (
-    <a href = {"/"+props.name}>
+    <a href = "/">
       <div class = "navbutton">
         {props.name}
       </div>
