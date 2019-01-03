@@ -1,7 +1,7 @@
 body {
-    background-color: rgb(250, 250, 250);
     font-family: "Merriweather", serif;
     font-weight: 300;
+    background-image: url("../static/paper-background4.jpg");
 }
 
 a {
@@ -14,35 +14,71 @@ a {
 
 #navbar {
     border-right: 1px solid black;
-    background-color: rgb(245, 245, 245);
+    background-color: rgba(245, 245, 245, 0.5);
     height: 100%;
-    width: 15%;
+    width: 18%;
     top: 0;
     left: 0;
     align-self: left;
     position: fixed;
-    display: table;
+    display: inline-block;
+    text-align: center;
+}
+
+#content {
+    height: 100%;
+    margin-left: 18%;
+    display: inline-block;
+    align-content: center;
+}
+
+#content div {
+    position: fixed;
+    margin-left:41%;
+    margin-top: 10%;
+    font-size: 100pt;
+}
+
+#content h1 {
+    position: fixed;
+    text-align: center;
+    margin-left:35%;
+    margin-top: 25%;
+}
+
+#profile {
+    display: block;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 10%;
+    border-radius: 100%;
+    align-self: center;
+}
+
+#navbar p {
+    font-size: 100%;
 }
 
 
 #navbuttons { 
     display: table-cell;
     vertical-align: middle;
+    font-size: 20pt;
     color: black;
 }
 
 .navbutton {
     text-align: center;
     width: 100%;
-    height: 10%;
-    line-height: 500%;
+    height: 5%;
+    line-height: 300%;
     display: inline-block;
     vertical-align: middle;
-    margin-top: 10%;
-    transition: all 500ms ease-in;
+    transition: all 350ms ease-in;
 }
 
+
 #navbuttons :hover {
-    background-color: rgb(235, 235, 235);
-    transition: all 500ms;
+    background-color: rgba(225, 225, 225, 0.9);
+    transition: all 350ms ease-in;
 }

@@ -21,11 +21,20 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <div id = "navbuttons">
-        {this.state.paths.map((name, i) => {
-          return(<NavButton name = {name} key = {i}></NavButton>)
-        })}
-      </div>
+      <span>
+        <img src = "../static/profile-img.jpg" id = "profile"></img>
+        <h1>
+          Findlay<br></br>Smith
+        </h1>
+        <p>
+          Physicist|Hacker|Pizza Enthusiast
+        </p>
+        <div id = "navbuttons">
+          {this.state.paths.map((name, i) => {
+            return(<NavButton name = {name} key = {i}></NavButton>)
+          })}
+        </div>
+      </span>
     );
   }
 }
