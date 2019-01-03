@@ -21,6 +21,10 @@ class ContactLinks extends React.Component {
                             "link": "https://www.linkedin.com/in/findlay-smith-a524a8151/",
                             "fa": "fab fa-linkedin"
                         },
+                        "email": {
+                            "link": "mailto:findlayksmith@gmail.com",
+                            "fa": "far fa-envelope"
+                        },
                         "mysterioso": {
                             "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
                             "fa": "fas fa-question"
