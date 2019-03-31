@@ -1,0 +1,25 @@
+{
+  "name": "findoslice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js/index.js",
+  "keywords": [],
+  "author": "findoslice",
+  "license": "ISC",
+  "scripts": {
+    "clean": "rm dist/bundle.js",
+    "start": "parcel *.html",
+    "build-prod": "parcel build *.html"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "cssnano": "^4.1.10",
+    "parcel-bundler": "^1.12.3"
+  }
+}
