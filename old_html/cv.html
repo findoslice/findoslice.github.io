@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <title>Findlay Smith</title>
 
-    <!--<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>-->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
 
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -15,10 +15,15 @@
 
     <link rel = "shortcut icon" type = "image/png" href = "./static/favicon.png">
 
-
+    
   </head>
   <body>
-    <div id="root"></div>
-    <script src="index.js"></script>
+    <div id="root">
+      <div id="navbar"></div>
+      <div id = "cv">
+        <embed src="static/CV.pdf" type="application/pdf" width="100%" height="1200px">
+        </div>
+      </div>
+    <script src="js/navbar.js"></script>
   </body>
 </html>

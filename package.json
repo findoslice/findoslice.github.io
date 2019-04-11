@@ -9,11 +9,19 @@
   "scripts": {
     "clean": "rm dist/bundle.js",
     "start": "parcel *.html",
-    "build-prod": "parcel build *.html"
+    "build-prod": "rm -rf dist && parcel build *.html"
   },
   "dependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "express": "^4.16.4",
+    "fs": "0.0.1-security",
+    "human-date": "^1.4.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-router": "^5.0.0",
+    "remarkable": "^1.7.1",
+    "remarkable-meta": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",

@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'reactdom'
+import ReactDOM from 'react-dom'
 
 // Obtain the root 
 const rootElement = document.getElementById('root')

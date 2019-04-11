@@ -1,29 +1,38 @@
 'use strict';
-
-const NavButton = (props) => {
-  return (
-    <a href = {"/" + props.name.toLowerCase() + ".html"}>
-      <div className = "navbutton">
-        {props.name}
-      </div>
-    </a>
-  );
-}
+import profile from  "../static/profile-img.jpg";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 
-class NavBar extends React.Component {
+export default class NavBar extends React.Component {
+  
   constructor(props) {
+    console.log("navbar constructor")
     super(props);
     this.state = {
-                    paths: ['ABOUT', 'BLOG', 'CV', 'LINKS']
-                 }
+                    paths: ['ABOUT', 'BLOG', 'CV', 'LINKS'],
+                    fipps: false
+                 };
+    this.fipps = this.fipps.bind(this);
+  }
+
+  fipps(e){
+    e.preventDefault();
+    if (document.getElementById("scm").checked) {
+      document.getElementByTagsName("body")[0].style.fontFace = "Fipps";
+    } else {
+      document.getElementByTagsName("body")[0].style.fontFace = "Merriweather";
+    }
+    console.log("fipps")
+    this.setState({fipps: !this.state.fipps});
   }
 
   render() {
-    return (
+  console.log("render");
+  return (
       <span>
         <a href = "/">
-          <img src = "../static/profile-img.jpg" id = "profile"></img>
+          <img src = {profile}  id = "profile"></img>
           <h1>
             Findlay<br></br>Smith
           </h1>
@@ -36,10 +45,21 @@ class NavBar extends React.Component {
             return(<NavButton name = {name} key = {i}></NavButton>)
           })}
         </div>
+        {/* <div>
+          <input type="checkbox" id="scm" name="scm" onClick={this.fipps} defaultChecked={this.state.fipps}></input>
+          <label htmlFor="scm"> super cool mode</label>
+        </div> */}
       </span>
     );
   }
 }
 
-const domContainer = document.querySelector('#navbar');
-ReactDOM.render(<NavBar />, domContainer);
+const NavButton = (props) => {
+  return (
+    <a href = {"/" + props.name.toLowerCase()}>
+      <div className = "navbutton">
+        {props.name}
+      </div>
+    </a>
+  );
+}

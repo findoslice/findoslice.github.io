@@ -1,0 +1,14 @@
+'use strict';
+
+const NavButton = (props) => {
+  return (
+    <span>
+        <a href = {"/" + props.name.toLowerCase() + ".html"}>
+        <div className = "navbutton">
+                {props.name}
+        </div>
+        </a>
+   </span>
+   );
+}
+

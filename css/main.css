@@ -1,7 +1,14 @@
+@font-face {
+    font-family: "Fipps";
+    src: url("/static/Fipps-Regular.otf") format("otf");
+}
 body {
     font-family: "Merriweather", serif;
+    font-size: 12pt;
     font-weight: 300;
     background-image: url("../static/paper-background4.jpg");
+    width: 100%;
+    height:100%;
 }
 
 a {
@@ -33,7 +40,8 @@ div {
 #content {
     height: 100%;
     margin-left: 18%;
-    display: inline-block;
+    width: 82%;
+    /*display: inline-block;*/
     align-content: center;
 }
 
@@ -41,7 +49,7 @@ div {
     position: fixed;
     margin-left:41%;
     margin-top: 10%;
-    font-size: 100pt;
+    font-size: 12pt;
 }
 
 #content h1 {
@@ -120,4 +128,59 @@ div {
     margin-left: 24%;
     margin-top: 2%;
     margin-bottom: 2%;
+}
+
+#content #blog {
+    width: 100%;
+    height: 100%;
+    margin: 0% !important;
+}
+
+#blog #blog-heading {
+    margin-left: 5% !important;
+    width: 72%;
+    margin-top: 2% !important;
+    margin-bottom: 2%;
+    position: relative !important;
+}
+
+#blog-heading h1 {
+    position: relative;
+    margin: 0% !important;
+    text-align: left;
+}
+
+.blogpost {
+    background-color: rgba(255,255,255, 0.4);
+    border: 1px solid rgba(180,180,180, 0.9);
+    border-radius: 3px;
+    position: relative !important;
+    margin-left: 5% !important;
+    margin-top: 1% !important;
+    width: 72%;
+    cursor: pointer;
+}
+
+.blogpost div, .blogpost p, .blogpost h1 {
+    position: relative !important;
+    margin-top: 0% !important;
+    margin-left: 1% !important;
+}
+
+.blogtitle {
+    position: relative !important;
+    margin: 0% !important;
+}
+
+.blogtitle .date {
+    bottom: 1%;
+    left: 1%;
+    position: relative !important;
+    font-size: 10pt;
+    color: rgba(150,150,150);
+}
+
+.blogtitle .title {
+    position: relative;
+    left: 1%;
 }

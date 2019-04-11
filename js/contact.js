@@ -1,4 +1,7 @@
 'use strict';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import NavBar from './navbar.js';
 
 const Icon = (props) => {
     return(
@@ -8,7 +11,7 @@ const Icon = (props) => {
     )
 }
 
-class ContactLinks extends React.Component {
+export default class ContactLinks extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -35,16 +38,20 @@ class ContactLinks extends React.Component {
 
   render() {
     return (
-      <div>
-        {Object.keys(this.state.links).map((key, i) => {
-            return(
-                <Icon link = {this.state.links[key].link} fa = {this.state.links[key].fa} key = {i}></Icon>
-            );
-        })}
-      </div>
+      <span>
+        <div id = "navbar">
+          <NavBar />
+        </div>
+        <div id="contactlinks">
+          <div>
+            {Object.keys(this.state.links).map((key, i) => {
+                return(
+                    <Icon link = {this.state.links[key].link} fa = {this.state.links[key].fa} key = {i}></Icon>
+                );
+            })}
+          </div>
+        </div>
+      </span>
     );
   }
 }
-
-const domContainer = document.querySelector('#contactlinks');
-ReactDOM.render(<ContactLinks />, domContainer);
