@@ -16,12 +16,17 @@ export default class BlogPost extends React.Component {
     }
 
     render() {
+        let date = hdate.prettyPrint(this.props.content.meta.date, {showTime: true})
+        console.log(Date.now() - Date.parse(this.props.content.meta.date))
+        if (Date.now() - Date.parse(this.props.content.meta.date) < 1296000000) {
+            date = hdate.relativeTime(this.props.content.meta.date)
+        }
         if (this.state.showPost){
         return (
             <div className = "blogpost" onClick = {this.onClick}>
                 <div className = "blogtitle">
                     <h2 className = "title"> {this.props.content.meta.title} </h2>
-                    <p className = "date"> {hdate.prettyPrint(this.props.content.meta.date)}</p>
+                    <p className = "date"> {date}</p>
                 </div>
                 <div dangerouslySetInnerHTML = {{__html:this.props.content.body}} />
             </div>
@@ -30,7 +35,7 @@ export default class BlogPost extends React.Component {
             <div className = "blogpost" onClick = {this.onClick}>
                 <div className = "blogtitle">
                     <h2 className = "title"> {this.props.content.meta.title} </h2>
-                    <p className = "date"> {hdate.prettyPrint(this.props.content.meta.date)}</p>
+                    <p className = "date"> {date}</p>
                 </div>
             </div>
             )}

@@ -1,5 +1,5 @@
 'use strict';
-import profile from  "../static/profile-img.jpg";
+import profile from  "../static/profile2.jpg";
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -37,7 +37,7 @@ export default class NavBar extends React.Component {
             Findlay<br></br>Smith
           </h1>
         </a>
-        <p>
+        <p id = "description">
           Physicist|Hacker|Pizza Enthusiast
         </p>
         <div id = "navbuttons">
@@ -45,10 +45,10 @@ export default class NavBar extends React.Component {
             return(<NavButton name = {name} key = {i}></NavButton>)
           })}
         </div>
-        {/* <div>
-          <input type="checkbox" id="scm" name="scm" onClick={this.fipps} defaultChecked={this.state.fipps}></input>
-          <label htmlFor="scm"> super cool mode</label>
-        </div> */}
+        {<div>
+          <input type="checkbox" id="scm" name="scm" onClick={this.props.darkMode} defaultChecked={this.props.dark}></input>
+          <label htmlFor="scm"> Dark Mode</label>
+        </div>}
       </span>
     );
   }

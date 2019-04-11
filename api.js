@@ -19,7 +19,9 @@ app.get("/posts", (req, res) => {
     let response = []
     fs.readdirSync("./blogposts").forEach( file => {
             let html = md.render(fs.readFileSync("./blogposts/" + file, 'utf-8'));
-            response.push({meta : md.meta, body : html});
+            if (!md.meta.draft) {
+                response.push({meta : md.meta, body : html});
+            }
     });
     res.json(response);
 });

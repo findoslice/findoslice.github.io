@@ -11,15 +11,13 @@ export default class Construction extends React.Component {
     
     render() {
         return (
-            <span>
-                <div id="content">
+            <div id="construction">
                     <div className="fas fa-wrench">
                     </div>
                     <h1>
                         Under construction...
                     </h1>
-                </div>
-            </span>
+            </div>
         )
     }
 }
