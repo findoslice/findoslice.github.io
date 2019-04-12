@@ -5,6 +5,7 @@ import {Route, BrowserRouter, Switch, Redirect} from 'react-router-dom';
 
 import Construction from './js/Construction.js';
 import NavBar from "./js/navbar.js";
+import DropDown from "./js/DropDown.js";
 import Blog from "./js/Blog.js";
 import ContactLinks from './js/contact.js'
 import Resume from './js/Resume.js'
@@ -41,6 +42,9 @@ export default class App extends React.Component {
             <BrowserRouter>
                 <div id="navbar" className = {this.state.className}>
                     <NavBar darkMode = {this.darkMode} dark = {this.state.darkMode}/>
+                </div>
+                <div id="dropdown" className = {this.state.className}>
+                    <DropDown darkMode = {this.darkMode} dark = {this.state.darkMode}/>
                 </div>
                 <Switch>
                     <Redirect exact from="/" to="/about" />

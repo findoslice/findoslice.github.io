@@ -11,7 +11,8 @@ app.use(function(req, res, next) {
   });
 let md = new Remarkable({
                         linkify: true,
-                        breaks: true
+                        breaks: true,
+                        html: true
 });
 md.use(meta);
 
@@ -19,6 +20,7 @@ app.get("/posts", (req, res) => {
     let response = []
     fs.readdirSync("./blogposts").forEach( file => {
             let html = md.render(fs.readFileSync("./blogposts/" + file, 'utf-8'));
+            md.meta.name = file.split(".")[0]
             if (!md.meta.draft) {
                 response.push({meta : md.meta, body : html});
             }

@@ -75,7 +75,7 @@ class LangSection extends React.Component {
             if (!this.state.translate) {
                 content =
                     <p>
-                        Findlay learnt French in school but enjoys furthering his knowledge of French language and culture, he was also once interview on the <i>Interfrance Bretagne</i> radio station.
+                        Findlay learnt French in school but enjoys furthering his knowledge of French language and culture, he was also once interview on the <i>Interfrance Brittany</i> radio station.
                     <span onClick = {this.handleClick} className = "togglelang">
                     <br /><br />
                         Click here to read this in French

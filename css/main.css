@@ -4,7 +4,7 @@
 }
 body {
     font-family: "Merriweather", serif;
-    font-size: 12pt;
+    font-size: 1em;
     font-weight: 300;
     background-image: url("../static/paper-background4.jpg") !important;
     width: 100%;
@@ -41,6 +41,10 @@ a {
     cursor: pointer;
 }
 
+.contacticon {
+    font-weight: 300 !important;
+}
+
 div {
     position: relative;
 }
@@ -65,16 +69,93 @@ div {
     margin-top: 33%;
 }
 
-@media (max-width: 650px){
-    #navbar #description {
+@media only screen  and (min-width : 650px) {
+    #dropdown{
         visibility:hidden !important;
+    }
+    #content {
+        margin-left: 18%;
+        width: 82%;
+    }
+
+}
+@media only screen  and (max-width : 650px) {
+    #navbar{
+        visibility:hidden !important;
+    }
+    #dropdown {
+        visibility: visible !important;
+    }
+    #content {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 650px){
+    #navbar{
+        visibility:hidden !important;
+    }
+    #dropdown {
+        visibility: visible !important;
+    }
+    #content {
+        width: 100% !important;
+        margin-left: 0 !important;
     }
 }
 
+#dropdown {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    z-index: 5;
+    width: 65px;
+    cursor: pointer;
+    box-shadow: none !important;
+}
+
+
+#droptoggle {
+    width: 65px;
+    height: 65px;
+    line-height: 65px;
+    border: 1px solid rgb(160, 160, 160);
+    border-radius: 5px;
+    background-color: rgba(245, 245, 245, 0.75);
+    text-align: center;
+    font-size: 2.75em;
+    color: rgb(120, 120, 120);
+}
+
+.dropdownbutton {
+    text-align: center;
+    height: 50px;
+    line-height:50px;
+    color:rgb(120, 120, 120);
+    border: 1px solid rgb(160, 160, 160);
+    border-radius: 5px;
+    background-color: rgba(245, 245, 245, 0.75);
+    cursor: pointer;
+    font-weight: bold;
+}
+#dropdown div {
+    position: relative !important;
+    width: 100%;
+}
+
+.darkmode #droptoggle {
+    border: 1px solid rgb(30, 30, 30);
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+}
+
+.darkmode .dropdownbutton {
+    border: 1px solid rgb(30, 30, 30);
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+}
 #content {
     height: 100%;
-    margin-left: 18%;
-    width: 82%;
     display: inline-block;
     align-content: center;
 }
@@ -110,7 +191,7 @@ div {
 #navbuttons { 
     display: table-cell;
     vertical-align: middle;
-    font-size: 20pt;
+    font-size: 2em;
     color: black;
 }
 
@@ -215,7 +296,9 @@ div {
 
 .blogtitle {
     position: relative !important;
+    display: inline-block;
     margin: 0% !important;
+    width: 80%;
 }
 
 .blogtitle .date {
@@ -223,9 +306,24 @@ div {
     left: 1%;
     margin-left: 0% !important;
     position: relative !important;
-    font-size: 10pt;
+    font-size: 0.8em;
     color: rgba(150,150,150);
 }
+
+/* .link {
+    position: absolute !important;
+    cursor: pointer;
+    display: inline-block;
+    width: 10%;
+    height: 90% !important;
+    top: 5px;
+    line-height: 90%;
+    font-size: 2em;
+} */
+.link :hover {
+    color: rgb(220,220,220);
+}
+
 
 .blogtitle .title {
     position: relative;
@@ -237,12 +335,12 @@ div {
     width: 20%;
     margin-top: 10%;
     margin-left:30%;
-    font-size: 120pt;
+    font-size: 10em;
     text-align: center;
 }
 
 #construction h1 {
-    font-size: 60pt !important;
+    font-size: 5em !important;
 }
 
 #darktoggle {
@@ -257,7 +355,7 @@ div {
 }
 
 #about h1 {
-    font-size: 48pt;
+    font-size: 4em;
 }
 
 .htb {
