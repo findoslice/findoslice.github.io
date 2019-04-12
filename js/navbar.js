@@ -38,14 +38,14 @@ export default class NavBar extends React.Component {
           </h1>
         </a>
         <p id = "description">
-          Physicist|Hacker|Pizza Enthusiast
+          Software Engineer && Physicist
         </p>
         <div id = "navbuttons">
           {this.state.paths.map((name, i) => {
             return(<NavButton name = {name} key = {i}></NavButton>)
           })}
         </div>
-        {<div>
+        {<div id="darktoggle">
           <input type="checkbox" id="scm" name="scm" onClick={this.props.darkMode} defaultChecked={this.props.dark}></input>
           <label htmlFor="scm"> Dark Mode</label>
         </div>}
