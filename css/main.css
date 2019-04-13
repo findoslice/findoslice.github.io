@@ -11,6 +11,13 @@ body {
     height:100%;
     transition: all 350ms ease-in-out !important;
 }
+/* 
+#root {
+    overflow-x: hidden !important;
+    margin: 0 !important;
+
+    
+} */
 
 .darkmode{
     background-color: black !important;
@@ -87,9 +94,18 @@ div {
         visibility: visible !important;
     }
     #content {
-        width: 100% !important;
-        margin-left: 0 !important;
+        width: 100vw !important;
+        margin: 0 !important;
     }
+    .contacticon {
+        width: 100% !important;
+        height: 10% !important;
+        margin-top: 15% !important;
+    }
+    #blog-heading {
+        margin-top: 85px !important;
+    }
+
 }
 @media only screen and (min-device-width : 320px) and (max-device-width : 650px){
     #navbar{
@@ -99,8 +115,16 @@ div {
         visibility: visible !important;
     }
     #content {
+        width: 100vw !important;
+        margin: 0 !important;
+    }
+    .contacticon {
         width: 100% !important;
-        margin-left: 0 !important;
+        height: 10% !important;
+        margin-top: 15% !important;
+    }
+    #blog-heading {
+        margin-top: 85px !important;
     }
 }
 
@@ -226,7 +250,7 @@ div {
 }
 
 .contacticon {
-    font-size: 6em !important;
+    font-size: 6em;
     width: 25%;
     height:10%;
     text-align: center;
@@ -254,9 +278,9 @@ div {
 }
 
 #blog #blog-heading {
-    margin-left: 5% !important;
+    margin-left: 5%;
     width: 72%;
-    margin-top: 2% !important;
+    margin-top: 2%;
     margin-bottom: 2%;
     position: relative !important;
 }
@@ -321,6 +345,10 @@ div {
     font-size: 2em;
 } */
 .link :hover {
+    color: rgb(50, 50, 50);
+}
+
+.darkmode .link :hover {
     color: rgb(220,220,220);
 }
 
@@ -371,4 +399,5 @@ div {
     font-weight: bold;
     cursor: pointer;
 }
+
 

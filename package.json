@@ -21,6 +21,7 @@
     "react": "^16.8.6",
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.8.6",
+    "react-notifications": "^1.4.3",
     "react-router": "^5.0.0",
     "remarkable": "^1.7.1",
     "remarkable-meta": "^1.0.1",

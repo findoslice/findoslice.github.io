@@ -1,6 +1,7 @@
 'use-strict';
 import React from 'react';
 import ReactDOM from 'react-dom';
+//import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 import hdate from "human-date";
 
@@ -10,10 +11,21 @@ export default class BlogPost extends React.Component {
         this.state = {showPost:false};
         this.onClick = this.onClick.bind(this);
         this.copyLink = this.copyLink.bind(this);
+        this.linkNotification = this.linkNotification.bind(this);
     }
 
-    onClick() {
-        this.setState({showPost: !this.state.showPost});
+    componentDidUpdate() {
+        console.log("yeet")
+        if (this.link) {
+            NotificationManager.success('', 'Link Copied!')
+            this.setState()
+        }
+    }
+
+    onClick(event) {
+        if (event.target.className != "fas fa-link" && event.target.className != "link"){
+            this.setState({showPost: !this.state.showPost});
+        }
     }
 
     copyLink() {
@@ -24,6 +36,13 @@ export default class BlogPost extends React.Component {
         textField.select()
         document.execCommand('copy')
         textField.remove()
+    }
+
+    linkNotification() {
+        if (this.link) {
+            this.link = false;
+            return NotificationManager.success('', 'Link Copied!')
+        }
     }
 
     render() {

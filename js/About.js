@@ -53,7 +53,7 @@ class LangSection extends React.Component {
                 content =
                     <p>
                         For the past three years Findlay has been teaching himself German, learning it both to communicate with friends and his girlfriend Ester. He
-                        is able to speak german proficiently in both professional and informal contexts and is passionate about furthering his knowledge of the language 
+                        is able to speak German proficiently in both professional and informal contexts and is passionate about furthering his knowledge of the language 
                     <span onClick = {this.handleClick} className = "togglelang">
                     <br />
                     <br />
@@ -63,7 +63,7 @@ class LangSection extends React.Component {
             } else {
                 content = <p>
                     Seit der letzten drei Jahre, Findlay hat sein selbst Deutsch beigebracht, um mitzusprechen mit seinen Freunden aus Deutschland, und seine Freundin Ester. Er 
-                    kann Deutsch reden in formelle und laessig Lagen und er geniesst mehr ueber Deutsch zu lernen. Er hat auch keine deutsch Tastatur.
+                    kann Deutsch reden in formelle und laessig Lagen und er geniesst mehr ueber Deutsch zu lernen. Er gehoert auch keine deutsch Tastatur.
                 <span onClick = {this.handleClick} className="togglelang">
                 <br />
                 <br />
@@ -75,7 +75,7 @@ class LangSection extends React.Component {
             if (!this.state.translate) {
                 content =
                     <p>
-                        Findlay learnt French in school but enjoys furthering his knowledge of French language and culture, he was also once interview on the <i>Interfrance Brittany</i> radio station.
+                        Findlay learnt French in school but enjoys furthering his knowledge of French language and culture, he was also once interviewed on the <i>Interfrance Brittany</i> radio station.
                     <span onClick = {this.handleClick} className = "togglelang">
                     <br /><br />
                         Click here to read this in French
