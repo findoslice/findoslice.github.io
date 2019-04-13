@@ -1,6 +1,7 @@
 'use-strict';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {NotificationManager} from 'react-notifications';
 //import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 import hdate from "human-date";
@@ -36,6 +37,7 @@ export default class BlogPost extends React.Component {
         textField.select()
         document.execCommand('copy')
         textField.remove()
+        NotificationManager.success('Link copied!', '', 1200);
     }
 
     linkNotification() {

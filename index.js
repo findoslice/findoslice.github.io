@@ -1,6 +1,7 @@
 'use-strict';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 import {Route, BrowserRouter, Switch, Redirect} from 'react-router-dom';
 
 import Construction from './js/Construction.js';
@@ -10,6 +11,8 @@ import Blog from "./js/Blog.js";
 import ContactLinks from './js/contact.js'
 import Resume from './js/Resume.js'
 import About from './js/About.js'
+
+import 'react-notifications/lib/notifications.css';
 
 export default class App extends React.Component {
     constructor(props) {
@@ -55,6 +58,7 @@ export default class App extends React.Component {
                         <Route path="/links" component={ContactLinks}/>
                     </div>
                 </Switch>
+                <NotificationContainer />
             </BrowserRouter>
         )
     }

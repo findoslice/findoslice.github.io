@@ -38,7 +38,7 @@ export default class Blog extends React.Component {
                         <p> So I guess i have a blog now, I apologise in advance before you delve deeper. This page is by no means done and will be updated in the future as I continue to procrastinate for my exams. Click <b><a href="https://random.dog" target="_blank">here</a></b> to see a dog.</p>
                     </div>
                     {this.state.posts.map((el, index) => {
-                        return <BlogPost content = {el} />
+                        return <BlogPost content = {el}/>
                     })}
                 </div>
         )

@@ -23,6 +23,7 @@
     "react-dom": "^16.8.6",
     "react-notifications": "^1.4.3",
     "react-router": "^5.0.0",
+    "react-toastify": "^5.0.1",
     "remarkable": "^1.7.1",
     "remarkable-meta": "^1.0.1",
     "smartdate": "^0.9.1"
