@@ -11,12 +11,22 @@ export default class Resume extends React.Component {
     }
     
     render() {
-        return (
-            <span>
+        if (screen.width > 650) {
+            return (
+                <span>
+                    <div id = "cv">
+                        <embed src={resume} type="application/pdf" width="100%" height="1200px" />
+                    </div>
+                </span>
+            )
+        } else {
+            return (
                 <div id = "cv">
-                    <embed src={resume} type="application/pdf" width="100%" height="1200px" />
+                    <h1>
+                        Unfortunately the embed of this cv is unavailable on mobile, you can view it <a href="https://cdn.findoslice.com/CV.pdf">here</a> though
+                    </h1>
                 </div>
-            </span>
-        )
+            )
+        }
     }
 }
