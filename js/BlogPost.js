@@ -16,7 +16,6 @@ export default class BlogPost extends React.Component {
     }
 
     componentDidUpdate() {
-        console.log("yeet")
         if (this.link) {
             NotificationManager.success('', 'Link Copied!')
             this.setState()
@@ -24,7 +23,8 @@ export default class BlogPost extends React.Component {
     }
 
     onClick(event) {
-        if (event.target.className != "fas fa-link" && event.target.className != "link"){
+        console.log(event.target.tagName);
+        if (event.target.className != "fas fa-link" && event.target.className != "link" || event.target.tagName.toLowerCase() != "a"){
             this.setState({showPost: !this.state.showPost});
         }
     }
@@ -43,7 +43,7 @@ export default class BlogPost extends React.Component {
     linkNotification() {
         if (this.link) {
             this.link = false;
-            return NotificationManager.success('', 'Link Copied!')
+            return NotificationManager.success('Link Copied!', '')
         }
     }
 

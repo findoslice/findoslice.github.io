@@ -12,6 +12,16 @@ body {
     height:100%;
     transition: all 350ms ease-in-out !important;
 }
+
+::selection{
+    color: white !important;
+    background-color: rgba(0,0,0,1) !important;
+}
+
+::-moz-selection {
+    color: white !important;
+    background-color: rgba(0,0,0,1) !important;
+}
 /* 
 #root {
     overflow-x: hidden !important;
@@ -24,6 +34,16 @@ body {
     background-color: black !important;
     background-image: url("../static/paper-background4-dark.jpg") !important;
     color: white !important;
+}
+
+.darkmode ::selection{
+    background-color: rgba(255,255,255,1) !important;
+    color: black !important;
+}
+
+.darkmode ::-moz-selection {
+    background-color: rgba(255,255,255,1) !important;
+    color: black !important;
 }
 
 .darkmode a{
@@ -102,7 +122,10 @@ div {
     .contacticon {
         width: 100% !important;
         height: 10% !important;
-        margin-top: 15% !important;
+        margin-top: 10% !important;
+    }
+    #contactlinks {
+        margin-top: 10% !important;
     }
     #blog-heading {
         margin-top: 90px !important;
@@ -120,10 +143,13 @@ div {
         width: 100% !important;
         margin: 0 !important;
     }
+    #contactlinks {
+        margin-top: 10% !important;
+    }
     .contacticon {
         width: 100% !important;
         height: 10% !important;
-        margin-top: 15% !important;
+        margin-top: 10% !important;
     }
     #blog-heading {
         margin-top: 90px !important;
@@ -253,7 +279,7 @@ div {
 
 .contacticon {
     font-size: 6em;
-    width: 25%;
+    width: 20%;
     height:10%;
     text-align: center;
     display: inline-block;
@@ -382,6 +408,7 @@ div {
     width: 60%;
     margin: 20%;
     margin-top: 10%;
+    margin-bottom: 0;
 }
 
 #about h1 {
