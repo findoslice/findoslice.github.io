@@ -131,6 +131,10 @@ div {
         margin-top: 90px !important;
     }
 
+    .blogpost img {
+        max-width: 90% !important;
+    }
+
 }
 @media only screen and (min-device-width : 320px) and (max-device-width : 650px){
     #navbar{
@@ -153,6 +157,10 @@ div {
     }
     #blog-heading {
         margin-top: 90px !important;
+    }
+
+    .blogpost img {
+        max-width: 90% !important;
     }
 }
 
